@@ -1,0 +1,23 @@
+input[type=text]{
+    padding: .4em;    
+}
+
+label, h3, h4, div[type=book]{
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+}
+
+input[type=checkbox], input[type=button]{
+    margin-left: 50%;
+}
+
+input[type=checkbox]{
+    padding-top: 1em;
+}
+
+div{
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+}
