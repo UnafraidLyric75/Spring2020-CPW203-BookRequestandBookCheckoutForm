@@ -6,5 +6,37 @@
     <title>Request data form</title>
 </head>
 <body>
+    <h1>Request data</h1>
+    
+    <form>
+        <label for="name">Name: </label>
+        <input type="text" id="name">
+        <span>*</span>
+        <br>
+
+        <label for="title">Book Title: </label>
+        <input type="text" id="title">
+        <span>*</span>
+        <br>
+
+        <label for="date-checkout">Checkout Date: </label>
+        <input type="text" id="date-checkout">
+        <span>*</span>
+        <br>
+
+        <input id="is-paperback" type="checkbox">
+        <label for="is-paperback">Is book paperback?</label>
+        <br>
+
+        <input type="button" id="add" value="Add book request">
+        <br>
+    </form>
+
+    <h3>Book request list</h3>
+    <h4>Paper Back book requests</h4>
+    <div id="paperback-book"></div>
+    <h4>Hard Back book requests</h4>
+    <div id="hardback-book"></div>
+    <script src="/js/main.js"></script>
 </body>
 </html>
