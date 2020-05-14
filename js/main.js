@@ -35,6 +35,16 @@ function isValid() {
     return isValidInfo;
 }
 function getBookPullInformation() {
+    var myBook = new bookPullInformation();
+    var nameInput = getById("name");
+    myBook.name = nameInput.value;
+    var titleInput = getById("title");
+    myBook.title = titleInput.value;
+    var dateInput = getById("date-checkout");
+    myBook.checkoutDate = new Date(dateInput.value);
+    var isPaperback = getById("is-paperback");
+    myBook.isPaperback = isPaperback.checked;
+    return myBook;
 }
 function displayBookRequest(book) {
 }

@@ -53,7 +53,25 @@ function isValid():boolean{
  * placeholdername object
  */
 function getBookPullInformation():bookPullInformation{
+    let myBook = new bookPullInformation();
 
+    // get name
+    let nameInput = getById("name");
+    myBook.name = nameInput.value;
+
+    // get title
+    let titleInput = getById("title");
+    myBook.title = titleInput.value;
+
+    // get checkout date
+    let dateInput = getById("date-checkout");
+    myBook.checkoutDate = new Date(dateInput.value);
+
+    // get if paperback or not
+    let isPaperback = getById("is-paperback");
+    myBook.isPaperback = isPaperback.checked;
+
+    return myBook;
 }
 
 /**
