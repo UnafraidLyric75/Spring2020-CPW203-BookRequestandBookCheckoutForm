@@ -23,18 +23,26 @@ function main(){
  */
 function isValid():boolean{
     let isValidInfo = true;
+    let inputBox;
 
     // if any folwing statements return false isValid is false
+    // ande provides error statement
     if(isInValidTextInput("name")){
         isValidInfo = false;
+        inputBox = getById("name");
+        inputBox.nextElementSibling.innerHTML = "There must be a name for the person the book is out to";
     }
 
     if(isInValidTextInput("title")){
         isValidInfo = false;
+        inputBox = getById("title");
+        inputBox.nextElementSibling.innerHTML = "There must be a title for the book";
     }
 
     if(isInValidDate("date-checkout")){
         isValidInfo = false;
+        inputBox = getById("date-checkout");
+        inputBox.nextElementSibling.innerHTML = "There must be a checkout date or requested date ex. mm/dd/yyyy";
     }
 
     return isValidInfo;
@@ -45,7 +53,7 @@ function isValid():boolean{
  * placeholdername object
  */
 function getBookPullInformation():bookPullInformation{
-    
+
 }
 
 /**
@@ -55,7 +63,7 @@ function getBookPullInformation():bookPullInformation{
  * in a paper back or hard back divs
  */
 function displayBookRequest(book:bookPullInformation){
-    
+
 }
 
 /**

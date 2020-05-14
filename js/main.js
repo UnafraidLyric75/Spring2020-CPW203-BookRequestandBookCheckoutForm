@@ -16,14 +16,21 @@ function main() {
 }
 function isValid() {
     var isValidInfo = true;
+    var inputBox;
     if (isInValidTextInput("name")) {
         isValidInfo = false;
+        inputBox = getById("name");
+        inputBox.nextElementSibling.innerHTML = "There must be a name for the person the book is out to";
     }
     if (isInValidTextInput("title")) {
         isValidInfo = false;
+        inputBox = getById("title");
+        inputBox.nextElementSibling.innerHTML = "There must be a title for the book";
     }
     if (isInValidDate("date-checkout")) {
         isValidInfo = false;
+        inputBox = getById("date-checkout");
+        inputBox.nextElementSibling.innerHTML = "There must be a checkout date or requested date ex. mm/dd/yyyy";
     }
     return isValidInfo;
 }
