@@ -23,6 +23,20 @@ function main(){
  */
 function isValid():boolean{
     let isValidInfo = true;
+
+    // if any folwing statements return false isValid is false
+    if(isInValidTextInput("name")){
+        isValidInfo = false;
+    }
+
+    if(isInValidTextInput("title")){
+        isValidInfo = false;
+    }
+
+    if(isInValidDate("date-checkout")){
+        isValidInfo = false;
+    }
+
     return isValidInfo;
 }
 
@@ -31,9 +45,7 @@ function isValid():boolean{
  * placeholdername object
  */
 function getBookPullInformation():bookPullInformation{
-    let myBook = new bookPullInformation();
-
-    return myBook;
+    
 }
 
 /**
@@ -58,20 +70,41 @@ function getById(id):HTMLInputElement{
  * Validdates all text boxes
  * @param id is text box being validated
  */
-function isValidTextInput(id):boolean{
-
+function isInValidTextInput(id):boolean{
+    let textInput = getById(id).value.trim();
+    if(textInput == "" || textInput == null){
+        return true;
+    }
+    return false;
 }
 
 /**
  * Resets all the spans back to the default text
  */
 function resetErrorMessages():void{
-
+    let allSpans= document.querySelectorAll("form span");
+    for(let i = 0; i < allSpans.length; i++){
+        let currSpan = <HTMLElement>allSpans[i];
+        currSpan.innerText = "*";
+    }
 }
 
 /**
  * Check to ensure a valid date
  */
 function isInValidDate(id):boolean{
-    
+    let dateInput = getById(id).value;
+    if(isValidDate(dateInput)){
+        return false;
+    }
+    return true;
+}
+
+/**
+ * continues isInValidDate function
+ */
+function isValidDate(input:string):boolean{
+    // Validating mm/dd/yyyy and m/d/yyyy
+    let pattern = /\d{1,2}\/\d{1,2}\/\d{4}/g;
+    return pattern.test(input);
 }

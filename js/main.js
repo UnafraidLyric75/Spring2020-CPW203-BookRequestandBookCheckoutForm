@@ -16,20 +16,46 @@ function main() {
 }
 function isValid() {
     var isValidInfo = true;
+    if (isInValidTextInput("name")) {
+        isValidInfo = false;
+    }
+    if (isInValidTextInput("title")) {
+        isValidInfo = false;
+    }
+    if (isInValidDate("date-checkout")) {
+        isValidInfo = false;
+    }
     return isValidInfo;
 }
 function getBookPullInformation() {
-    var myBook = new bookPullInformation();
-    return myBook;
 }
 function displayBookRequest(book) {
 }
 function getById(id) {
     return document.getElementById(id);
 }
-function isValidTextInput(id) {
+function isInValidTextInput(id) {
+    var textInput = getById(id).value.trim();
+    if (textInput == "" || textInput == null) {
+        return true;
+    }
+    return false;
 }
 function resetErrorMessages() {
+    var allSpans = document.querySelectorAll("form span");
+    for (var i = 0; i < allSpans.length; i++) {
+        var currSpan = allSpans[i];
+        currSpan.innerText = "*";
+    }
 }
 function isInValidDate(id) {
+    var dateInput = getById(id).value;
+    if (isValidDate(dateInput)) {
+        return false;
+    }
+    return true;
+}
+function isValidDate(input) {
+    var pattern = /\d{1,2}\/\d{1,2}\/\d{4}/g;
+    return pattern.test(input);
 }
