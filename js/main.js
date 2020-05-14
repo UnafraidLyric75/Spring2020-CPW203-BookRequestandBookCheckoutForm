@@ -47,6 +47,30 @@ function getBookPullInformation() {
     return myBook;
 }
 function displayBookRequest(book) {
+    var bookName = document.createElement("p");
+    bookName.innerText = book.name;
+    var bookTitle = document.createElement("p");
+    bookTitle.innerText = "requested: " + book.title;
+    var bookDate = document.createElement("p");
+    bookDate.innerText = " on date: " + book.checkoutDate.toDateString();
+    var bookDiv = document.createElement("div");
+    if (book.isPaperback) {
+        bookDiv.classList.add("paperback");
+    }
+    else {
+        bookDiv.classList.add("hardback");
+    }
+    bookDiv.appendChild(bookName);
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookDate);
+    if (book.isPaperback) {
+        var isPaperbackBook = document.getElementById("paperback-book");
+        isPaperbackBook.appendChild(bookDiv);
+    }
+    else {
+        var isHardbackBook = document.getElementById("hardback-book");
+        isHardbackBook.appendChild(bookDiv);
+    }
 }
 function getById(id) {
     return document.getElementById(id);

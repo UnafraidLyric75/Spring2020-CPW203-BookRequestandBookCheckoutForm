@@ -81,7 +81,36 @@ function getBookPullInformation():bookPullInformation{
  * in a paper back or hard back divs
  */
 function displayBookRequest(book:bookPullInformation){
+    // gets book information
+    let bookName = document.createElement("p");
+    bookName.innerText = book.name;
 
+    let bookTitle = document.createElement("p");
+    bookTitle.innerText = "requested: " + book.title;
+
+    let bookDate = document.createElement("p");
+    bookDate.innerText = " on date: " + book.checkoutDate.toDateString();
+
+    let bookDiv = document.createElement("div");
+    if(book.isPaperback){
+        bookDiv.classList.add("paperback");
+    } else{
+        bookDiv.classList.add("hardback");
+    }
+    
+    // puts all date into a div
+    bookDiv.appendChild(bookName);
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookDate);
+
+    // decides to put it in hardback or paper back div
+    if(book.isPaperback){
+        let isPaperbackBook = document.getElementById("paperback-book");
+        isPaperbackBook.appendChild(bookDiv);
+    } else {
+        let isHardbackBook = document.getElementById("hardback-book");
+        isHardbackBook.appendChild(bookDiv);
+    }
 }
 
 /**
